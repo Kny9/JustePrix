@@ -3,52 +3,43 @@
 from random import randint
 
 def jeu_juste_prix():
-    print("bienvenue")
+  print("bienvenue dans le juste prix !")
 
-    juste_prix = randint(1, 100)  
-juste_prix = 9
-essai = 10
+  juste_prix = randint(1, 100)  
+  essai = 10 
+  while essai >= 1:
 
-running = True
-joueur_prix = True
-  
-while essai<=10:
-         
+    essai -= 1
+          
     joueur_prix = int(input("Entrer un prix "))
- 
+  
     if joueur_prix == juste_prix:
-     print("Trouvé !")
-     running = False
-     
-     
-
+      print("Trouvé ! Tu a découvert le juste prix !")
+      break
+    elif essai == 0:
+      print(f"game over le prix était {juste_prix}")
+      break
     elif joueur_prix > juste_prix:
-     print("trop haut")
-     essai -= 1
-     print(f"il vous reste {essai} essaie")
-       
+      print("trop haut")
 
     elif joueur_prix < juste_prix:
-     print("trop bas")
-     essai -= 1
-     print(f"il vous reste {essai} essaie")
+      print("trop bas")
 
-    rejouer = input("Voulez-vous rejouer ? ")
-    if rejouer.lower() == "oui":
-      jeu_juste_prix()
+    print(f"il vous reste {essai} essaie")
 
-    elif rejouer.lower() == "non":
-      break
-    else:
-      print("merci d'avoir joué !")
+jeu_juste_prix()
 
+rejouer = input("Voulez-vous rejouer ? ")
     
+if rejouer.lower() == "oui":
+  jeu_juste_prix()
 
+elif rejouer.lower() == "non":
+  print("merci d'avoir joué !")
 
-
+else:
+  print("erreur : entré oui ou non !")
 
 
 # fin du jeu après la boucle
 print("Fin du jeu !")
- 
-
